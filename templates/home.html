@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head onload=" wishMe() ">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css' ) }}">
+</head>
+<body>
+    <section class="main">
+            <div class="user-area">
+            </div>
+            <div class="chatarea-main">
+                <div class="chatarea-outer">
+                    <!-- <div class="chatarea-inner user">Hello hi, how area you, i am good. What about you!</div>
+                    <div class="chatarea-inner chatbot">Hello hi, how area you, i am good. What about you!</div>
+                    <div class="chatarea-inner user">Hello hi, how area you, i am good. What about you!</div> -->
+                </div>
+            </div>
+            <input type="hidden" class="chatbot-area" name="data">
+                <!--<img src="{{ url_for('static', filename='images/gif.gif' ) }}" alt="image">-->
+                 <div class="typing">
+          <div class="bubble">
+            <div class="ellipsis one"></div>
+            <div class="ellipsis two"></div>
+            <div class="ellipsis three"></div>
+          </div>
+            </div>
+        <button id="mic"><i class="flaticon-microphone"></i></button>
+    </section>
+    <script src="{{ url_for('static', filename='css/home.js') }}"></script>
+</body>
+</html>

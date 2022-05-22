@@ -1,0 +1,84 @@
+<html>
+  <head>
+      <a href="#download-photo">
+      </a>
+   <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+  </head>
+  <body>
+<video id="webcam" autoplay playsinline width="640" height="480"></video>
+<canvas id="canvas" class="d-none"></canvas>
+<script>
+const speechRecognition1=window.webkitSpeechRecognition //Google Chrome
+||
+window.SpeechRecognition;  //Firefox
+startListening1();
+function startListening1()
+{
+    const recong = new speechRecognition1();
+    recong.lang = "en-US"
+    recong.start();
+
+    recong.onresult =function(data)
+    {
+        handleResults1(data);
+    }
+    recong.addEventListener("end", () => {
+    recong.start();
+});
+}
+
+function handleResults1(data)
+{
+    let text=data.results[0][0].transcript;
+    text = text.toLowerCase();
+    console.log(text);
+    ProcessCommand1(text);
+}
+function ProcessCommand1(UserText)
+{
+        if(UserText.includes("picture"))
+        {
+            snap();
+        }
+        if(UserText.includes("close"))
+        {
+         try {
+           //window.top.close()
+           //window.open('http://127.0.0.1:5000/ ');
+           window.location.replace('http://127.0.0.1:5000/');
+          } catch (e) {
+
+          }
+        }
+
+        else
+        {
+
+        }
+}
+
+const webcamElement = document.getElementById('webcam');
+const canvasElement = document.getElementById('canvas');
+const snapSoundElement = document.getElementById('snapSound');
+const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
+webcam.start()
+  .then(result =>{
+    console.log("webcam started");
+  })
+  .catch(err => {
+    console.log(err);
+});
+function snap()
+{
+let picture = webcam.snap();
+document.querySelector('#download-photo').href = picture;
+}
+recognition.addEventListener("end", () => {
+  recognition.start();
+});
+
+recognition.start();
+</script>
+
+  </body>
+</html>
