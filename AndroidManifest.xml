@@ -1,0 +1,4 @@
+<intent-filter>
+    <data android:scheme="http" android:host="twiter.com"/>
+    <action android:name="android.intent.action.VIEW"/>
+</intent-filter>
